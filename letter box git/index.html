@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemoryLetters - Digital Letter Scrapbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <i class="fas fa-envelope-open-text"></i>
+                    MemoryLetters
+                </h1>
+                <p class="app-subtitle">Preserve your heartfelt moments in digital ink</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Write Letter Section -->
+            <section class="write-section" id="writeSection">
+                <div class="section-header">
+                    <h2><i class="fas fa-feather-alt"></i> Write a New Letter</h2>
+                </div>
+                
+                <form class="letter-form" id="letterForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="letterTitle">Letter Title</label>
+                            <input type="text" id="letterTitle" name="title" required placeholder="What's this letter about?">
+                        </div>
+                        <div class="form-group">
+                            <label for="letterDate">Date</label>
+                            <input type="date" id="letterDate" name="date" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="senderName">From</label>
+                            <input type="text" id="senderName" name="sender" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipientName">To</label>
+                            <input type="text" id="recipientName" name="recipient" required placeholder="Recipient's name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="letterMessage">Your Message</label>
+                        <textarea id="letterMessage" name="message" required placeholder="Write your heartfelt message here..." rows="8"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Letter
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="clearForm">
+                            <i class="fas fa-eraser"></i> Clear
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- View Letters Section -->
+            <section class="view-section" id="viewSection">
+                <div class="section-header">
+                    <h2><i class="fas fa-book-open"></i> Your Letters</h2>
+                    <div class="view-controls">
+                        <button class="btn btn-small" id="toggleView">
+                            <i class="fas fa-th-large"></i> Toggle View
+                        </button>
+                        <button class="btn btn-small" id="clearAll">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="letters-container" id="lettersContainer">
+                    <!-- Letters will be dynamically added here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <button class="nav-btn active" data-section="write">
+                <i class="fas fa-feather-alt"></i>
+                <span>Write</span>
+            </button>
+            <button class="nav-btn" data-section="view">
+                <i class="fas fa-book-open"></i>
+                <span>Read</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Letter Detail Modal -->
+    <div class="modal" id="letterModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Letter content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notificationText"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
